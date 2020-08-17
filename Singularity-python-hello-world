@@ -1,0 +1,23 @@
+BootStrap: shub
+From: uabrc/anaconda3:07
+
+%labels
+  Maintainer Ravi Tripathi
+  Anaconda_Version 2020.07
+  Python_Version 3.8.3
+
+%apprun conda
+  exec conda "${@}"
+
+%apprun python
+  exec python "${@}"
+
+%runscript
+  exec python /hello_world.py
+
+%files
+  requirements.txt
+  hello_world.py
+
+%post
+  pip install -r requirements.txt
