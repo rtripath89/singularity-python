@@ -13,11 +13,11 @@ From: uabrc/anaconda3:07
   exec python "${@}"
 
 %runscript
-  exec python /hello_world.py
+  exec python /opt/hello_world.py "${@}"
 
 %files
-  requirements.txt
-  hello_world.py
+  requirements.txt /opt
+  hello_world.py /opt
 
 %post
-  pip install -r requirements.txt
+  pip install -r /opt/requirements.txt
